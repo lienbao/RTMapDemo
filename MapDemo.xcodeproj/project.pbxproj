@@ -21,6 +21,8 @@
 		4A6CD92C185847EE0002D5EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6CD90E185847EE0002D5EA /* UIKit.framework */; };
 		4A6CD934185847EE0002D5EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6CD932185847EE0002D5EA /* InfoPlist.strings */; };
 		4A6CD936185847EE0002D5EA /* MapDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CD935185847EE0002D5EA /* MapDemoTests.m */; };
+		4A6CD94118584BF10002D5EA /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CD94018584BF10002D5EA /* MKMapView+ZoomLevel.m */; };
+		4ABEF90F18588E8500066C88 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABEF90E18588E8500066C88 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		4A6CD931185847EE0002D5EA /* MapDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapDemoTests-Info.plist"; sourceTree = "<group>"; };
 		4A6CD933185847EE0002D5EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A6CD935185847EE0002D5EA /* MapDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDemoTests.m; sourceTree = "<group>"; };
+		4A6CD93F18584BF10002D5EA /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		4A6CD94018584BF10002D5EA /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		4ABEF90E18588E8500066C88 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ABEF90F18588E8500066C88 /* MapKit.framework in Frameworks */,
 				4A6CD90D185847EE0002D5EA /* CoreGraphics.framework in Frameworks */,
 				4A6CD90F185847EE0002D5EA /* UIKit.framework in Frameworks */,
 				4A6CD90B185847EE0002D5EA /* Foundation.framework in Frameworks */,
@@ -101,6 +107,7 @@
 		4A6CD909185847EE0002D5EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ABEF90E18588E8500066C88 /* MapKit.framework */,
 				4A6CD90A185847EE0002D5EA /* Foundation.framework */,
 				4A6CD90C185847EE0002D5EA /* CoreGraphics.framework */,
 				4A6CD90E185847EE0002D5EA /* UIKit.framework */,
@@ -117,6 +124,9 @@
 				4A6CD91C185847EE0002D5EA /* Main.storyboard */,
 				4A6CD91F185847EE0002D5EA /* ViewController.h */,
 				4A6CD920185847EE0002D5EA /* ViewController.m */,
+				4A6CD93F18584BF10002D5EA /* MKMapView+ZoomLevel.h */,
+				4A6CD94018584BF10002D5EA /* MKMapView+ZoomLevel.m */,
+				4A6CD94218584E490002D5EA /* overlays */,
 				4A6CD922185847EE0002D5EA /* Images.xcassets */,
 				4A6CD911185847EE0002D5EA /* Supporting Files */,
 			);
@@ -150,6 +160,13 @@
 				4A6CD932185847EE0002D5EA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A6CD94218584E490002D5EA /* overlays */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = overlays;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6CD921185847EE0002D5EA /* ViewController.m in Sources */,
+				4A6CD94118584BF10002D5EA /* MKMapView+ZoomLevel.m in Sources */,
 				4A6CD91B185847EE0002D5EA /* AppDelegate.m in Sources */,
 				4A6CD917185847EE0002D5EA /* main.m in Sources */,
 			);
@@ -460,6 +478,7 @@
 				4A6CD93B185847EE0002D5EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A6CD93C185847EE0002D5EA /* Build configuration list for PBXNativeTarget "MapDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +487,7 @@
 				4A6CD93E185847EE0002D5EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
