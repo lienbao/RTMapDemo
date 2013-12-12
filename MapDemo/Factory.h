@@ -10,5 +10,7 @@
 
 @interface Factory : NSObject
 @property (nonatomic, strong) NSMutableArray *polygonArray;
+@property (nonatomic, strong) NSMutableArray *pathArray;
+@property (nonatomic, strong) NSMutableArray *nameArray;
 - (void)decodedData;
 @end

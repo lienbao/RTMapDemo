@@ -25,6 +25,22 @@
     return _polygonArray;
 }
 
+- (NSMutableArray *)pathArray
+{
+    if (_pathArray == nil) {
+        _pathArray = [[NSMutableArray alloc] init];
+    }
+    return _pathArray;
+}
+
+- (NSMutableArray *)nameArray
+{
+    if (_nameArray == nil) {
+        _nameArray = [[NSMutableArray alloc] init];
+    }
+    return _nameArray;
+}
+
 - (NSData *)rawData
 {
     if (_rawData == nil) {
@@ -40,15 +56,26 @@
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:self.rawData options:NSJSONReadingAllowFragments error:&error];
     
     for (id item in dictionary) {
-        CLLocationCoordinate2D *pointArray = calloc([dictionary[item] count], sizeof(CLLocationCoordinate2D));
+        
+        CLLocationCoordinate2D *coordinateArray = calloc([dictionary[item] count], sizeof(CLLocationCoordinate2D));
+        CGPoint *pointArray = calloc([dictionary[item] count], sizeof(CGPoint));
+        
         int counter = 0;
         for (id coordinate in dictionary[item]) {
-            pointArray[counter] = CLLocationCoordinate2DMake([coordinate[0] floatValue], [coordinate[1] floatValue]);
+            coordinateArray[counter] = CLLocationCoordinate2DMake([coordinate[0] floatValue], [coordinate[1] floatValue]);
+            pointArray[counter] = CGPointMake([coordinate[0] floatValue], [coordinate[1] floatValue]);
             counter++;
         }
-        MKPolygon *polygon = [MKPolygon polygonWithCoordinates:pointArray count:counter - 1];
+        MKPolygon *polygon = [MKPolygon polygonWithCoordinates:coordinateArray count:counter - 1];
         [self.polygonArray addObject:polygon];
+        free(coordinateArray);
+        
+        CGMutablePathRef pathRef = CGPathCreateMutable();
+        CGPathAddLines(pathRef, NULL, pointArray, counter-1);
+        [self.pathArray addObject:CFBridgingRelease(pathRef)];
         free(pointArray);
+        
+        [self.nameArray addObject:item];
     }
 }
 
