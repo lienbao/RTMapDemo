@@ -9,15 +9,24 @@
 #import "ViewController.h"
 #import <MapKit/MapKit.h>
 #import "MKMapView+ZoomLevel.h"
+#import "Factory.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) Factory *factory;
 
 @end
 
 @implementation ViewController
 #pragma mark - getters and setters
+- (Factory *)factory
+{
+    if (_factory == nil) {
+        _factory = [[Factory alloc] init];
+    }
+    return _factory;
+}
 
 #pragma mark - life circle
 - (void)viewDidLoad
@@ -34,57 +43,14 @@
     tapGestureRecognizer.numberOfTapsRequired = 1;
     tapGestureRecognizer.numberOfTouchesRequired = 1;
     [self.mapView addGestureRecognizer:tapGestureRecognizer];
+    
+    [self.factory decodedData];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    CLLocationCoordinate2D worldCoords[] = {
-            {31.308606 , 121.369635},
-            {31.30471  , 121.349597}, 
-            {31.299667 , 121.344369}, 
-            {31.296721 , 121.331498}, 
-            {31.291206 , 121.336242}, 
-            {31.292194 , 121.338823}, 
-            {31.280265 , 121.344   },
-            {31.275137 , 121.375549}, 
-            {31.272501 , 121.373058}, 
-            {31.273195 , 121.366579}, 
-            {31.26546  , 121.368432}, 
-            {31.263419 , 121.387532}, 
-            {31.249926 , 121.382316}, 
-            {31.253107 , 121.374967}, 
-            {31.24586  , 121.369701}, 
-            {31.246065 , 121.362705}, 
-            {31.243052 , 121.36074 },  
-            {31.232263 , 121.367677}, 
-            {31.225553 , 121.380136}, 
-            {31.224124 , 121.405596}, 
-            {31.22999  , 121.421803}, 
-            {31.234664 , 121.421693}, 
-            {31.231671 , 121.427416}, 
-            {31.241491 , 121.437545}, 
-            {31.249636 , 121.456481}, 
-            {31.262609 , 121.457521}, 
-            {31.273917 , 121.44897 },  
-            {31.281254 , 121.436295}, 
-            {31.272878 , 121.427543}, 
-            {31.27209  , 121.422203}, 
-            {31.279141 , 121.417414}, 
-            {31.278913 , 121.411944}, 
-            {31.28219  , 121.413008}, 
-            {31.284302 , 121.406259}, 
-            {31.291382 , 121.410787}, 
-            {31.297022 , 121.400145}, 
-            {31.300357 , 121.40121 },  
-            {31.299661 , 121.390114}, 
-            {31.294788 , 121.387613}, 
-            {31.294613 , 121.372448}, 
-            {31.298987 , 121.367214}, 
-            {31.308606 , 121.369635}
-    };
-    
-    MKPolygon *poly = [MKPolygon polygonWithCoordinates:worldCoords count:sizeof(worldCoords)/sizeof(worldCoords[0])];
-    [self.mapView addOverlay:poly level:MKOverlayLevelAboveRoads];
+    [self.mapView addOverlays:self.factory.polygonArray level:MKOverlayLevelAboveRoads];
 }
 
 #pragma mark - MKMapViewDelegate

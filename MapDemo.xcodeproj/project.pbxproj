@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A001AA6185974B700D40D4F /* Areainfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A001AA5185974B700D40D4F /* Areainfo.plist */; };
+		4A001AA918597A8600D40D4F /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A001AA818597A8600D40D4F /* Factory.m */; };
 		4A6CD90B185847EE0002D5EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6CD90A185847EE0002D5EA /* Foundation.framework */; };
 		4A6CD90D185847EE0002D5EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6CD90C185847EE0002D5EA /* CoreGraphics.framework */; };
 		4A6CD90F185847EE0002D5EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6CD90E185847EE0002D5EA /* UIKit.framework */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A001AA5185974B700D40D4F /* Areainfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Areainfo.plist; sourceTree = "<group>"; };
+		4A001AA718597A8600D40D4F /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		4A001AA818597A8600D40D4F /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		4A6CD907185847EE0002D5EA /* MapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6CD90A185847EE0002D5EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A6CD90C185847EE0002D5EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A001A9D18595A2A00D40D4F /* areaPolygon */ = {
+			isa = PBXGroup;
+			children = (
+				4A001AA718597A8600D40D4F /* Factory.h */,
+				4A001AA818597A8600D40D4F /* Factory.m */,
+			);
+			name = areaPolygon;
+			sourceTree = "<group>";
+		};
 		4A6CD8FE185847ED0002D5EA = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +133,7 @@
 		4A6CD910185847EE0002D5EA /* MapDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4A001A9D18595A2A00D40D4F /* areaPolygon */,
 				4A6CD919185847EE0002D5EA /* AppDelegate.h */,
 				4A6CD91A185847EE0002D5EA /* AppDelegate.m */,
 				4A6CD91C185847EE0002D5EA /* Main.storyboard */,
@@ -137,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				4A6CD912185847EE0002D5EA /* MapDemo-Info.plist */,
+				4A001AA5185974B700D40D4F /* Areainfo.plist */,
 				4A6CD913185847EE0002D5EA /* InfoPlist.strings */,
 				4A6CD916185847EE0002D5EA /* main.m */,
 				4A6CD918185847EE0002D5EA /* MapDemo-Prefix.pch */,
@@ -246,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6CD923185847EE0002D5EA /* Images.xcassets in Resources */,
+				4A001AA6185974B700D40D4F /* Areainfo.plist in Resources */,
 				4A6CD915185847EE0002D5EA /* InfoPlist.strings in Resources */,
 				4A6CD91E185847EE0002D5EA /* Main.storyboard in Resources */,
 			);
@@ -269,6 +286,7 @@
 				4A6CD921185847EE0002D5EA /* ViewController.m in Sources */,
 				4A6CD94118584BF10002D5EA /* MKMapView+ZoomLevel.m in Sources */,
 				4A6CD91B185847EE0002D5EA /* AppDelegate.m in Sources */,
+				4A001AA918597A8600D40D4F /* Factory.m in Sources */,
 				4A6CD917185847EE0002D5EA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
